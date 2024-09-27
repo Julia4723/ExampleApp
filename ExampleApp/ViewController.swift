@@ -10,11 +10,12 @@ import UIKit
 class ViewController: UIViewController {
     
     let myName = "Julius"
+    let mySurname = "Ivanov"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("I am \(myName). I am a developer.")
+        print("I am \(myName), my surname is \(mySurname). I am a developer.")
     }
 
 
