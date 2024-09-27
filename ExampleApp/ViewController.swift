@@ -9,13 +9,12 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let myName = "Julius"
-    let mySurname = "Ivanov"
+    let person = Person()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("I am \(myName), my surname is \(mySurname). I am a developer.")
+        print("I am \(person.myName), my surname is \(person.mySurname). I am a developer.")
     }
 
 
