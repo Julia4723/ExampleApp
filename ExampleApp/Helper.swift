@@ -26,4 +26,8 @@ class Helper: UIViewController {
             print(user.getFullName())
         }
     }
+    
+    func getRandomUser() -> User? {
+            return users.randomElement()
+        }
 }

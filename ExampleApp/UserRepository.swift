@@ -9,7 +9,7 @@ import UIKit
 
 class UserRepository {
     
-    // Метод для получения массива пользователей, имитирует запрос в сеть
+
     func getUsers() -> [User] {
         var arrayUsers: [User] = []
         
