@@ -9,25 +9,23 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let helper = Helper()
+    let helper = Helper()  // Экземпляр Helper
+    let userRepo = UserRepository()  // Экземпляр UserRepository
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .red
         
-        let person1 = Person(myName: "Ann", mySurname: "Ivanova")
-        let person2 = Person(myName: "Andrey", mySurname: "Ivanov")
+        // Получаем массив пользователей из репозитория
+        let users = userRepo.getUsers()
         
-        let user1 = User(username: "ann_a", password: "1234", personalInfo: person1)
-        let user2 = User(username: "andry_a", password: "1234", personalInfo: person2)
+        // Передаем полученных пользователей в Helper
+        helper.addPeople(users)
         
-        helper.addPerson(user1)
-        helper.addPerson(user2)
-        
+        // Достаем пользователей из Helper для отображения
         helper.getPerson()
     }
 }
-
 
 
