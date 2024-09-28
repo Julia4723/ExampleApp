@@ -4,9 +4,20 @@
 //
 //  Created by user on 27.09.2024.
 //
+import UIKit
 
-class Person {
-    let myName = "Julius"
-    let mySurname = "Ivanov"
+struct Person {
+    let myName: String
+    let mySurname: String
 }
 
+
+struct User {
+    let username: String
+    let password: String
+    let personalInfo: Person
+    
+    func getFullName() -> String {
+        return ("\(personalInfo.myName) \(personalInfo.mySurname)")
+    }
+}
