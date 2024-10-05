@@ -6,7 +6,7 @@
 //
 import UIKit
 
-class Helper: UIViewController {
+class Helper {
     
     private var users: [User] = []
     
