@@ -13,15 +13,9 @@ class ViewController: UIViewController {
     private let userRepo = UserRepository()
     private var labelUser = UILabel()
     
-    private let customButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Show full name", for: .normal)
-        button.setTitleColor(.systemGray, for: .normal)
-        button.backgroundColor = .systemGreen
-        button.frame = CGRect(x: 100, y: 150, width: 150, height: 50)
-        
-        return button
-    }()
+    private let customButton = UIButton()
+    
+    private let stackView = UIStackView()
     
     
     override func viewDidLoad() {
@@ -36,9 +30,22 @@ class ViewController: UIViewController {
         helper.getPerson()
         
         setupLabel()
-        view.addSubview(labelUser)
-        view.addSubview(customButton)
+        setupButton()
+        setupStackView()
         
+        view.addSubview(stackView)
+
+        setupLayout()
+//        view.addSubview(labelUser)
+//        view.addSubview(customButton)
+        
+    }
+    
+    private func setupButton() {
+        customButton.setTitle("Show full name", for: .normal)
+        customButton.setTitleColor(.systemGray, for: .normal)
+        customButton.backgroundColor = .systemGreen
+        customButton.frame = CGRect(x: 100, y: 150, width: 150, height: 50)
     }
     
     func setupLabel() {
@@ -50,6 +57,27 @@ class ViewController: UIViewController {
         labelUser.font = .systemFont(ofSize: 25, weight: .bold)
         labelUser.textColor = .systemBlue
         labelUser.frame = CGRect(x: 30, y: 30, width: 200, height: 100)
+    }
+    
+    func setupStackView(){
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.alignment = .fill
+        stackView.spacing = 20
+        
+        stackView.addArrangedSubview(labelUser)
+        stackView.addArrangedSubview(customButton)
+        
+    }
+    
+    func setupLayout() {
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            
+        ])
     }
 }
 
