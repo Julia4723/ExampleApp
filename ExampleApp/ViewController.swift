@@ -5,6 +5,7 @@
 //  Created by user on 27.09.2024.
 //
 
+
 import UIKit
 
 class ViewController: UIViewController {
@@ -14,6 +15,9 @@ class ViewController: UIViewController {
     private var labelUser = UILabel()
     
     private let customButton = UIButton()
+    
+    private let myButtonFirst = CustomButtonView(label: "First", color: .systemRed)
+    private let myButtonSecond = CustomButtonView(label: "Second Button", color: .systemBlue)
     
     private let stackView = UIStackView()
     
@@ -63,11 +67,11 @@ class ViewController: UIViewController {
         stackView.axis = .vertical
         stackView.distribution = .fillEqually
         stackView.alignment = .fill
-        stackView.spacing = 20
+        stackView.spacing = 40
         
         stackView.addArrangedSubview(labelUser)
-        stackView.addArrangedSubview(customButton)
-        
+        stackView.addArrangedSubview(myButtonFirst)
+        stackView.addArrangedSubview(myButtonSecond)
     }
     
     func setupLayout() {
@@ -75,11 +79,13 @@ class ViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
-            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-            
+            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+           
         ])
     }
 }
+
+
 
 
 
