@@ -18,8 +18,8 @@ class ViewController: UIViewController {
     
     private let customButton = UIButton()
     
-    private let myButtonFirst = CustomButtonView(label: "First", color: .systemRed)
-    private let myButtonSecond = CustomButtonView(label: "Second Button", color: .systemBlue)
+    private let myButtonFirst = CustomButtonView(label: "First", color: .systemRed, isShadow: false)
+    private let myButtonSecond = CustomButtonView(label: "Second Button", color: .systemBlue, isShadow: true)
     
     private let stackView = UIStackView()
     
