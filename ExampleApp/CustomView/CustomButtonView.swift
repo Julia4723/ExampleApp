@@ -23,6 +23,9 @@ final class CustomButtonView: UIButton {
     init(label: String, color: UIColor, isShadow: Bool) {
         super.init(frame: .zero)
         setupButton(label, color, isShadow)
+        
+        addViews(button)
+        //addSubview(button)
     }
     
     required init?(coder: NSCoder) {
@@ -40,26 +43,7 @@ final class CustomButtonView: UIButton {
     }
     
     
-    //MARK: - Private Methods
-    
-    private func setupButton(_ label: String, _ color: UIColor, _ isShadow: Bool) {
-        button.setTitle(label, for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = color
-        button.frame = CGRect(x: 0, y: 0, width: 150, height: 50)
-        button.layer.cornerRadius = 16
-       
-        if isShadow {
-            button.layer.shadowColor = UIColor.black.cgColor
-            button.layer.shadowOpacity = 0.2
-            button.layer.shadowOffset = CGSize(width: 5, height: 5)
-            button.layer.shadowRadius = 10
-        }
-        
-        addViews(button)
-        //addSubview(button)
-    }
-    
+    //MARK: - Layout
     
     private func setupLayout() {
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -73,3 +57,32 @@ final class CustomButtonView: UIButton {
     }
 }
 
+
+extension CustomButtonView {
+    
+    //MARK: - Private Methods
+    
+    private func setupButton(_ label: String, _ color: UIColor, _ isShadow: Bool) {
+        setTitle(label, for: .normal)
+        setTitleColor(.white, for: .normal)
+        backgroundColor = color
+        frame = CGRect(x: 0, y: 0, width: 150, height: 50)
+        layer.cornerRadius = Constant.cornerRadius
+        
+        heightAnchor.constraint(equalToConstant: 50).isActive = true
+       
+        if isShadow {
+            layer.shadowColor = UIColor.black.cgColor
+            layer.shadowOpacity = 0.2
+            layer.shadowOffset = CGSize(width: 5, height: 5)
+            layer.shadowRadius = 10
+        }
+    }
+}
+
+
+private extension CustomButtonView {
+    enum Constant {
+        static let cornerRadius: CGFloat = 16
+    }
+}

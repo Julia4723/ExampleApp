@@ -28,6 +28,6 @@ class Helper {
     }
     
     func getRandomUser() -> User? {
-            return users.randomElement()
-        }
+        return users.randomElement()
+    }
 }
