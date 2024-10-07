@@ -7,8 +7,12 @@ import UIKit
 
 final class CustomButtonView: UIButton {
     
+    
+    //MARK: - Private Property
+    
     private let button = UIButton()
     
+    //MARK: - Init
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,14 +29,19 @@ final class CustomButtonView: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    //MARK: - Private Methods
+    
     private func setupButton(_ label: String, _ color: UIColor) {
         button.setTitle(label, for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = color
         button.frame = CGRect(x: 0, y: 0, width: 150, height: 50)
         
-        addSubview(button)
+        addViews(button)
+        //addSubview(button)
     }
+    
     
     private func setupLayout() {
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -42,9 +51,7 @@ final class CustomButtonView: UIButton {
             button.leadingAnchor.constraint(equalTo: leadingAnchor),
             button.trailingAnchor.constraint(equalTo: trailingAnchor),
             button.bottomAnchor.constraint(equalTo: bottomAnchor),
-            
         ])
     }
-    
 }
 
