@@ -18,6 +18,6 @@ struct User {
     let personalInfo: Person
     
     func getFullName() -> String {
-        return ("\(personalInfo.myName) \(personalInfo.mySurname)")
+        ("\(personalInfo.myName) \(personalInfo.mySurname)")
     }
 }

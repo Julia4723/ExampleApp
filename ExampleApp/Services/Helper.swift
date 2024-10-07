@@ -6,7 +6,7 @@
 //
 import UIKit
 
-class Helper {
+final class Helper {
     
     private var users: [User] = []
     

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UserRepository {
+final class UserRepository {
     
     func getUsers() -> [User] {
         var arrayUsers: [User] = []

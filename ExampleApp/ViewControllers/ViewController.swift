@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
     
     //MARK: - Private Property
     
@@ -47,8 +47,8 @@ class ViewController: UIViewController {
         addAction()
         
         setupLayout()
-        //        view.addSubview(labelUser)
-        //        view.addSubview(customButton)
+        // view.addSubview(labelUser)
+        // view.addSubview(customButton)
         
     }
     
@@ -59,19 +59,6 @@ class ViewController: UIViewController {
         } else {
             labelUser.text = "No users"
         }
-    }
-    
-    
-    //MARK: - Layout
-    
-    private func setupLayout() {
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
-            stackView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
-            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-        ])
     }
 }
 
@@ -138,6 +125,20 @@ private extension ViewController {
         //        stackView.addArrangedSubview(myButtonSecond)
     }
     
+}
+
+private extension ViewController {
+    //MARK: - Layout
+    
+    private func setupLayout() {
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+            stackView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
+            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        ])
+    }
 }
 
 
