@@ -7,25 +7,12 @@ import UIKit
 
 final class CustomButtonView: UIButton {
     
-    
-    //MARK: - Private Property
-    
-    private let button = UIButton()
-    
     //MARK: - Init
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        setupLayout()
-    }
     
     init(label: String, color: UIColor, isShadow: Bool) {
         super.init(frame: .zero)
         setupButton(label, color, isShadow)
         
-        addViews(button)
-        //addSubview(button)
     }
     
     required init?(coder: NSCoder) {
@@ -40,20 +27,6 @@ final class CustomButtonView: UIButton {
         
         let shadowPath = UIBezierPath(rect: bounds)
         layer.shadowPath = shadowPath.cgPath
-    }
-    
-    
-    //MARK: - Layout
-    
-    private func setupLayout() {
-        button.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            button.topAnchor.constraint(equalTo: topAnchor),
-            button.leadingAnchor.constraint(equalTo: leadingAnchor),
-            button.trailingAnchor.constraint(equalTo: trailingAnchor),
-            button.bottomAnchor.constraint(equalTo: bottomAnchor),
-        ])
     }
 }
 
